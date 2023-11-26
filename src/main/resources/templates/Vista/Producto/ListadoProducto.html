@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Lista Productos</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	</head>
+	<body>
+		<h1 align="center">Listado de Productos</h1>
+		
+		<h2 align="center">
+			<a th:href="@{Registrar}" th:text="'nuevo registro'" title="crear nuevo registro" class="btn btn-primary"></a>
+		</h2>
+		<table align="center" class="container mt-8"  >
+									
+			<tr>
+				<th>Codigo</th>
+				<th>Nombre</th>
+				<th>Pre. Venta</th>
+				<th>Pre. Compra</th>
+				<th>Stock</th>
+				<th>Estado</th>
+				<th>Descripcion</th>
+				<th>Acciones</th>
+			</tr>
+			
+			<th:block th:each="p:${listado}">
+								
+				<tr>
+					<td th:text="${p.idproductocl3}"></td>
+					<td th:text="${p.nombrecl3}"></td>
+					<td th:text="${p.precioventacl3}"></td>
+					<td th:text="${p.preciocompcl3}"></td>
+					<td th:text="${p.stock}"></td>
+					<td th:text="${p.estadocl3}"></td>
+					<td th:text="${p.descripcl3}"></td>
+					<td>
+						<a th:href="@{Editar/}+${p.idproductocl3}"  title="Editar Registro" class="btn btn-warning">Editar</a>
+						<a th:href="@{Eliminar/}+${p.idproductocl3}"  class="btn btn-danger">Eliminar</a>
+					</td>
+					
+					<td></td>
+				</tr>
+				
+			</th:block>
+		</table>
+		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	</body>	
+</html>
